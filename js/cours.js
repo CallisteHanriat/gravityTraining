@@ -1,15 +1,16 @@
 
-var text = addSomething("p", "idTest", "Entres une valeur en celcius : ");
+var text = addSomething("p", "idTest", "Entre une valeur en celcius : ");
 var entreeCelcius = addSomething("input", "idTest", "");
 var button = addSomething("button", "idTest", "calcul");
 entreeCelcius.setAttribute("type", "number");
+entreeCelcius.style.width = '100px';
 
 var celcius = entreeCelcius.value;
 
 var celciusTmp = new Temperature(celcius);
 
 button.addEventListener("click", function () {clikCalculButton();});
-
+entreeCelcius.addEventListener("change", function() {clikCalculButton();});
 
 
 /**
@@ -39,10 +40,10 @@ function clikCalculButton() {
     console.log("celciusTmp : " + celciusTmp.getValue());
     if (!answer) {
         console.log("je suis dans le if");
-        var t = addSomething("p", "idTest", "Result : " + farheneightTmp.getValue());
+        var t = addSomething("p", "idTest", "Result : " + farheneightTmp.getValue() + " °F");
         t.setAttribute("id", "answer");
     } else {
         console.log("je suis dans le else");
-        answer.textContent = "Result : " + farheneightTmp.getValue();
+        answer.textContent = "Result : " + farheneightTmp.getValue() + " °F";
     }
 }
